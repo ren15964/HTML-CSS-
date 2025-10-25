@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: grey;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: repeat(3, 320fr);
+      gap: 35px;
+      justify-content: center;
+      margin: 100px auto;
+      width: 80%;
+    }
+
+    .card-item {
+      /* 添加透视效果 */
+      perspective: 1000px;
+      position: relative;
+      width: 100%;
+      height: 250px;
+      border-radius: 15px;
+      /* 让里面的两个盒子保持3d状态 */
+      transform-style: preserve-3d;
+    }
+
+    .card-item:last-child {
+      grid-column: 3;
+    }
+
+    .card-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .card .card-item:hover .front {
+      transform: rotateY(-180deg);
+
+    }
+
+    .card .card-item:hover .back {
+      transform: rotateY(0deg);
+    }
+
+    /* 共同样式：提取.front和.back的公共属性 */
+    .card .front,
+    .card .back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      /* 移除重复的transform-style，已在父元素.card-item中设置 */
+      backface-visibility: hidden;
+      transition: all 0.7s;
+      color: #fff;
+      border-radius: 15px;
+    }
+
+    /* 正面样式 */
+    .card .front {
+      z-index: 1;
+    }
+
+    /* 正面文本样式 */
+    .card .front p {
+      font-size: 30px;
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      border-bottom: 1px solid #fff;
+      padding-bottom: 20px;
+      transform: translateX(-50%) translateZ(60px);
+      backface-visibility: hidden;
+    }
+
+    .card .front span {
+      font-size: 20px;
+      position: absolute;
+      top: 140px;
+      left: 50%;
+      transform: translateX(-50%) translateZ(60px);
+      backface-visibility: hidden;
+    }
+
+    /* 背面样式 */
+    .card .back {
+      background: linear-gradient(45deg, #cedce7 0, #596a72 100%);
+      font-size: 16px;
+      padding-top: 40px;
+      line-height: 35px;
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<div class="card">
+  <div class="card-item">
+    <div class="front">
+      <img src="./images/1.webp" alt="上海滩">
+      <p>上海滩</p>
+      <span>刘德华</span>
+    </div>
+    <div class="back">
+      <p>浪奔浪流</p>
+      <p>万里涛涛江水永不休</p>
+      <p>淘尽了世间事</p>
+      <p>混作滔滔一片潮流</p>
+      <p>是喜是愁</p>
+    </div>
+  </div>
+  <div class="card-item">
+    <div class="front">
+      <img src="./images/2.webp" alt="忘情水">
+      <p>忘情水</p>
+      <span>刘德华</span>
+    </div>
+    <div class="back">
+      <p>曾经年少爱追梦</p>
+      <p>一心只想往前飞</p>
+      <p>行遍千山和万水</p>
+      <p>一路走来不能回</p>
+      <p>蓦然回首情已远</p>
+    </div>
+  </div>
+  <div class="card-item">
+    <div class="front">
+      <img src="./images/3.jpg" alt="世界第一等">
+      <p>世界第一等</p>
+      <span>刘德华</span>
+    </div>
+    <div class="back">
+      <p>人生的风景</p>
+      <p>亲像大海的风涌</p>
+      <p>有时猛有时平 这个季节</p>
+      <p>亲爱朋友你着小心</p>
+      <p>人生的环境</p>
+    </div>
+  </div>
+  <div class="card-item">
+    <div class="front">
+      <img src="./images/4.jpg" alt="冰雨">
+      <p>冰雨</p>
+      <span>刘德华</span>
+    </div>
+    <div class="back">
+      <p>我是在等待一个女孩</p>
+      <p>还是在等待沉沦苦海</p>
+      <p>一段情默默灌溉</p>
+      <p>没有人去管花谢花开</p>
+      <p>无法肯定的爱</p>
+    </div>
+  </div>
+  <div class="card-item">
+    <div class="front">
+      <img src="./images/5.jpg" alt="世界第一等">
+      <p>世界第一等</p>
+      <span>刘德华</span>
+    </div>
+    <div class="back">
+      <p>人生的风景</p>
+      <p>亲像大海的风涌</p>
+      <p>有时猛有时平 这个季节</p>
+      <p>亲爱朋友你着小心</p>
+      <p>人生的环境</p>
+    </div>
+  </div>
+  <div class="card-item">
+    <div class="front">
+      <img src="./images/6.jpg" alt="冰雨">
+      <p>冰雨</p>
+      <span>刘德华</span>
+    </div>
+    <div class="back">
+      <p>我是在等待一个女孩</p>
+      <p>还是在等待沉沦苦海</p>
+      <p>一段情默默灌溉</p>
+      <p>没有人去管花谢花开</p>
+      <p>无法肯定的爱</p>
+    </div>
+  </div>
+  <div class="card-item">
+    <div class="front">
+      <img src="./images/4.jpg" alt="世界第一等">
+      <p>世界第一等</p>
+      <span>刘德华</span>
+    </div>
+    <div class="back">
+      <p>人生的风景</p>
+      <p>亲像大海的风涌</p>
+      <p>有时猛有时平 这个季节</p>
+      <p>亲爱朋友你着小心</p>
+      <p>人生的环境</p>
+    </div>
+  </div>
+  <div class="card-item">
+    <div class="front">
+      <img src="./images/3.jpg" alt="冰雨">
+      <p>冰雨</p>
+      <span>刘德华</span>
+    </div>
+    <div class="back">
+      <p>我是在等待一个女孩</p>
+      <p>还是在等待沉沦苦海</p>
+      <p>一段情默默灌溉</p>
+      <p>没有人去管花谢花开</p>
+      <p>无法肯定的爱</p>
+    </div>
+  </div>
+
+</div>
+
+<body>
+
+</body>
+
+</html>
